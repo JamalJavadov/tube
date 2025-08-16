@@ -1,0 +1,1420 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TubeMəkan • YouTube Tədris Platforması</title>
+  <meta name="description" content="Professional YouTube öyrədici videolar və resurslar platforması. Təhsil materialları, tutorial videolar və ekspert bələdçiləri." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='56' fill='%23667eea'/%3E%3Cpath d='M72 172h112a8 8 0 0 0 8-8V92a8 8 0 0 0-8-8H72a8 8 0 0 0-8 8v72a8 8 0 0 0 8 8Zm40-64 48 24-48 24Z' fill='%23fff'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* =====================
+       Design System & Variables
+    ====================== */
+    :root {
+      /* Colors - Professional Blue Gradient Theme */
+      --bg-primary: #0a0b0f;
+      --bg-secondary: #1a1d2e;
+      --bg-tertiary: #252941;
+      --surface: #ffffff;
+      --surface-alt: #f8fafc;
+      --surface-elevated: #ffffff;
+      
+      /* Brand Colors */
+      --brand-primary: #667eea;
+      --brand-secondary: #764ba2;
+      --brand-accent: #f093fb;
+      --brand-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --brand-gradient-light: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      
+      /* Text Colors */
+      --text-primary: #ffffff;
+      --text-secondary: #94a3b8;
+      --text-tertiary: #64748b;
+      --text-inverse: #0f172a;
+      
+      /* Interactive Colors */
+      --interactive-hover: rgba(102, 126, 234, 0.1);
+      --interactive-active: rgba(102, 126, 234, 0.2);
+      --border-primary: rgba(148, 163, 184, 0.1);
+      --border-secondary: rgba(148, 163, 184, 0.05);
+      
+      /* Status Colors */
+      --success: #10b981;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --info: #3b82f6;
+      
+      /* Shadows */
+      --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      
+      /* Border Radius */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --radius-2xl: 24px;
+      --radius-full: 9999px;
+      
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      
+      /* Typography */
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --font-size-xs: 12px;
+      --font-size-sm: 14px;
+      --font-size-base: 16px;
+      --font-size-lg: 18px;
+      --font-size-xl: 20px;
+      --font-size-2xl: 24px;
+      --font-size-3xl: 30px;
+      --font-size-4xl: 36px;
+      --font-size-5xl: 48px;
+      --font-size-6xl: 60px;
+      
+      --line-height-tight: 1.25;
+      --line-height-snug: 1.375;
+      --line-height-normal: 1.5;
+      --line-height-relaxed: 1.625;
+      --line-height-loose: 2;
+      
+      --font-weight-light: 300;
+      --font-weight-normal: 400;
+      --font-weight-medium: 500;
+      --font-weight-semibold: 600;
+      --font-weight-bold: 700;
+      --font-weight-extrabold: 800;
+      --font-weight-black: 900;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --surface: #ffffff;
+      --surface-alt: #f8fafc;
+      --surface-elevated: #ffffff;
+      
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-tertiary: #64748b;
+      --text-inverse: #ffffff;
+      
+      --border-primary: rgba(15, 23, 42, 0.1);
+      --border-secondary: rgba(15, 23, 42, 0.05);
+      
+      --interactive-hover: rgba(102, 126, 234, 0.08);
+      --interactive-active: rgba(102, 126, 234, 0.12);
+    }
+
+    /* =====================
+       Base Styles
+    ====================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-normal);
+      color: var(--text-primary);
+      background: var(--bg-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    }
+
+    /* =====================
+       Typography
+    ====================== */
+    .text-xs { font-size: var(--font-size-xs); }
+    .text-sm { font-size: var(--font-size-sm); }
+    .text-base { font-size: var(--font-size-base); }
+    .text-lg { font-size: var(--font-size-lg); }
+    .text-xl { font-size: var(--font-size-xl); }
+    .text-2xl { font-size: var(--font-size-2xl); }
+    .text-3xl { font-size: var(--font-size-3xl); }
+    .text-4xl { font-size: var(--font-size-4xl); }
+    .text-5xl { font-size: var(--font-size-5xl); }
+    .text-6xl { font-size: var(--font-size-6xl); }
+
+    .font-light { font-weight: var(--font-weight-light); }
+    .font-normal { font-weight: var(--font-weight-normal); }
+    .font-medium { font-weight: var(--font-weight-medium); }
+    .font-semibold { font-weight: var(--font-weight-semibold); }
+    .font-bold { font-weight: var(--font-weight-bold); }
+    .font-extrabold { font-weight: var(--font-weight-extrabold); }
+    .font-black { font-weight: var(--font-weight-black); }
+
+    .text-primary { color: var(--text-primary); }
+    .text-secondary { color: var(--text-secondary); }
+    .text-tertiary { color: var(--text-tertiary); }
+
+    /* =====================
+       Layout Components
+    ====================== */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-left: var(--space-lg);
+      padding-right: var(--space-lg);
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+      }
+    }
+
+    /* =====================
+       Button System
+    ====================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-md);
+      font-family: inherit;
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+
+    .btn:hover::before {
+      transform: translateX(100%);
+    }
+
+    .btn-primary {
+      background: var(--brand-gradient);
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border-color: var(--border-primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--interactive-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+      border-color: var(--border-primary);
+    }
+
+    .btn-ghost:hover {
+      background: var(--interactive-hover);
+      color: var(--text-primary);
+    }
+
+    .btn-sm {
+      padding: 8px 16px;
+      font-size: var(--font-size-xs);
+    }
+
+    .btn-lg {
+      padding: 16px 24px;
+      font-size: var(--font-size-base);
+    }
+
+    .btn-icon {
+      padding: 10px;
+      width: 40px;
+      height: 40px;
+    }
+
+    /* =====================
+       Header & Navigation
+    ====================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(10, 11, 15, 0.8);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border-primary);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+      padding: var(--space-md) 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--brand-gradient);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .logo-icon::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: var(--brand-gradient);
+      border-radius: inherit;
+      z-index: -1;
+      opacity: 0.3;
+      filter: blur(8px);
+    }
+
+    .logo-text {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      background: var(--brand-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-spacer {
+      flex: 1;
+    }
+
+    .search-toolbar {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .search-input {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input input {
+      padding: 12px 16px 12px 44px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: var(--font-size-sm);
+      width: 280px;
+      transition: all 0.2s;
+    }
+
+    .search-input input:focus {
+      outline: none;
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .search-input .search-icon {
+      position: absolute;
+      left: 14px;
+      color: var(--text-tertiary);
+      pointer-events: none;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper select {
+      padding: 12px 40px 12px 16px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: var(--font-size-sm);
+      cursor: pointer;
+      appearance: none;
+      min-width: 140px;
+      transition: all 0.2s;
+    }
+
+    .select-wrapper select:focus {
+      outline: none;
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .select-wrapper::after {
+      content: '';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid var(--text-tertiary);
+      pointer-events: none;
+    }
+
+    /* =====================
+       Hero Section
+    ====================== */
+    .hero {
+      padding: var(--space-3xl) 0;
+      background: 
+        radial-gradient(ellipse at top, rgba(102, 126, 234, 0.1) 0%, transparent 60%),
+        radial-gradient(ellipse at bottom right, rgba(118, 75, 162, 0.1) 0%, transparent 60%);
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(135deg, transparent 0%, rgba(102, 126, 234, 0.05) 50%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+      font-weight: var(--font-weight-black);
+      line-height: var(--line-height-tight);
+      margin-bottom: var(--space-lg);
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: var(--font-size-xl);
+      color: var(--text-secondary);
+      line-height: var(--line-height-relaxed);
+      margin-bottom: var(--space-2xl);
+      font-weight: var(--font-weight-normal);
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 16px 32px;
+      background: var(--brand-gradient);
+      color: white;
+      text-decoration: none;
+      border-radius: var(--radius-xl);
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--font-size-lg);
+      box-shadow: var(--shadow-xl);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+
+    .hero-cta:hover::before {
+      transform: translateX(100%);
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-2xl);
+    }
+
+    /* =====================
+       Content Grid
+    ====================== */
+    .content-section {
+      padding: var(--space-3xl) 0;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: var(--space-xl);
+    }
+
+    @media (max-width: 768px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+      }
+    }
+
+    /* =====================
+       Video Cards
+    ====================== */
+    .video-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      backdrop-filter: blur(10px);
+    }
+
+    .video-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--brand-gradient-light);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .video-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-2xl);
+      border-color: rgba(102, 126, 234, 0.2);
+    }
+
+    .video-card:hover::before {
+      opacity: 1;
+    }
+
+    .video-thumbnail {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+
+    .video-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .video-card:hover .video-thumbnail img {
+      transform: scale(1.05);
+    }
+
+    .video-thumbnail .duration-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .video-thumbnail .premiere-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--brand-gradient);
+      color: white;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .video-content {
+      padding: var(--space-xl);
+    }
+
+    .video-title {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--text-primary);
+      line-height: var(--line-height-snug);
+      margin-bottom: var(--space-sm);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .video-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+      color: var(--text-tertiary);
+      font-size: var(--font-size-sm);
+    }
+
+    .video-description {
+      color: var(--text-secondary);
+      line-height: var(--line-height-relaxed);
+      margin-bottom: var(--space-lg);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .video-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      background: var(--interactive-hover);
+      border: 1px solid var(--border-secondary);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-xs);
+      color: var(--text-secondary);
+      font-weight: var(--font-weight-medium);
+    }
+
+    .level-tag {
+      background: var(--brand-gradient);
+      color: white;
+      border-color: transparent;
+    }
+
+    .video-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .materials-section {
+      margin-top: var(--space-lg);
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--border-secondary);
+      display: none;
+    }
+
+    .materials-section.open {
+      display: block;
+    }
+
+    .materials-list {
+      list-style: none;
+      margin-top: var(--space-md);
+    }
+
+    .materials-list li {
+      margin-bottom: var(--space-sm);
+    }
+
+    .materials-list a {
+      color: var(--brand-primary);
+      text-decoration: none;
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      transition: color 0.2s;
+    }
+
+    .materials-list a:hover {
+      color: var(--brand-secondary);
+    }
+
+    /* =====================
+       Toast Notification
+    ====================== */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      padding: 16px 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-primary);
+      box-shadow: var(--shadow-xl);
+      backdrop-filter: blur(20px);
+      z-index: 100;
+      font-weight: var(--font-weight-medium);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .toast.error {
+      border-color: var(--error);
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    /* =====================
+       Footer
+    ====================== */
+    .footer {
+      padding: var(--space-3xl) 0 var(--space-xl);
+      text-align: center;
+      color: var(--text-tertiary);
+      border-top: 1px solid var(--border-primary);
+      background: var(--bg-secondary);
+    }
+
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .footer-title {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-subtitle {
+      color: var(--text-secondary);
+      margin-bottom: var(--space-xl);
+    }
+
+    .footer-copyright {
+      font-size: var(--font-size-sm);
+      color: var(--text-tertiary);
+    }
+
+    /* =====================
+       Responsive Design
+    ====================== */
+    @media (max-width: 1024px) {
+      .search-toolbar {
+        gap: var(--space-sm);
+      }
+      
+      .search-input input {
+        width: 220px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        gap: var(--space-lg);
+      }
+      
+      .search-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+      }
+      
+      .search-input {
+        width: 100%;
+      }
+      
+      .search-input input {
+        width: 100%;
+      }
+      
+      .hero {
+        padding: var(--space-2xl) 0;
+      }
+      
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+      }
+      
+      .video-content {
+        padding: var(--space-lg);
+      }
+      
+      .video-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .btn {
+        justify-content: center;
+      }
+    }
+
+    /* =====================
+       Animations
+    ====================== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.6s ease-out both;
+    }
+
+    .fade-in:nth-child(2) { animation-delay: 0.1s; }
+    .fade-in:nth-child(3) { animation-delay: 0.2s; }
+    .fade-in:nth-child(4) { animation-delay: 0.3s; }
+    .fade-in:nth-child(5) { animation-delay: 0.4s; }
+    .fade-in:nth-child(6) { animation-delay: 0.5s; }
+
+    /* =====================
+       Utility Classes
+    ====================== */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="#" class="logo" aria-label="TubeMəkan Ana Səhifə">
+          <div class="logo-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.42a2.78 2.78 0 0 0-1.95 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 2C5.12 20 12 20 12 20s6.88 0 8.59-.42a2.78 2.78 0 0 0 1.95-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" fill="white"/>
+              <polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="#667eea"/>
+            </svg>
+          </div>
+          <div class="logo-text">TubeMəkan</div>
+        </a>
+        
+        <div class="nav-spacer"></div>
+        
+        <div class="search-toolbar">
+          <div class="search-input">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.3-4.3"/>
+            </svg>
+            <input id="searchInput" type="search" placeholder="Video, kateqoriya və ya məzmun axtar..." />
+          </div>
+          
+          <div class="select-wrapper">
+            <select id="categoryFilter">
+              <option value="">Bütün kateqoriyalar</option>
+              <option>Kanal Yaratma</option>
+              <option>SEO</option>
+              <option>İzlənmə Artırma</option>
+              <option>Thumbnail</option>
+              <option>Edit Prosesi</option>
+            </select>
+          </div>
+          
+          <div class="select-wrapper">
+            <select id="levelFilter">
+              <option value="">Bütün səviyyələr</option>
+              <option>Yeni Başlayan</option>
+              <option>Orta Səviyyə</option>
+              <option>Premium Səviyyə</option>
+            </select>
+          </div>
+          
+          <div class="select-wrapper">
+            <select id="sortFilter">
+              <option value="date-desc">Ən yenilər</option>
+              <option value="date-asc">Ən köhnələr</option>
+              <option value="title-asc">Başlığa görə (A→Z)</option>
+              <option value="title-desc">Başlığa görə (Z→A)</option>
+              <option value="duration-desc">Ən uzun</option>
+              <option value="duration-asc">Ən qısa</option>
+            </select>
+          </div>
+          
+          <button id="themeToggle" class="btn btn-icon btn-ghost" aria-label="Mövzu dəyiş">
+            <svg id="sunIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+            </svg>
+            <svg id="moonIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Professional YouTube Təhsil Platforması</h1>
+        <p class="hero-subtitle">
+          YouTube kanalınızı inkişaf etdirmək üçün keyfiyyətli videolar, materiallar və ekspert bələdçiləri. 
+          Hər mərhələdə sizinlə birgə.
+        </p>
+        <a href="#" class="hero-cta" id="heroCtaBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          Ən son videoya keç
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <main class="content-section">
+    <div class="container">
+      <div id="contentGrid" class="content-grid"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <h3 class="footer-title">TubeMəkan</h3>
+        <p class="footer-subtitle">YouTube təhsil və inkişafı üçün professional platforma</p>
+        <p class="footer-copyright">
+          © <span id="currentYear"></span> TubeMəkan. Bütün hüquqlar qorunur. Sevgiylə hazırlanıb 🚀
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Card Template -->
+  <template id="videoCardTemplate">
+    <article class="video-card fade-in">
+      <div class="video-thumbnail">
+        <img alt="" loading="lazy" />
+        <div class="premiere-badge" style="display: none">YENİ</div>
+        <div class="duration-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          <span class="duration-text"></span>
+        </div>
+      </div>
+      <div class="video-content">
+        <h3 class="video-title"></h3>
+        <div class="video-meta">
+          <span class="video-date"></span>
+          <span>•</span>
+          <span class="video-category"></span>
+          <span class="level-tag tag video-level"></span>
+        </div>
+        <p class="video-description"></p>
+        <div class="video-tags"></div>
+        <div class="video-actions">
+          <a class="btn btn-primary btn-sm video-watch-btn" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            İzlə
+          </a>
+          <button class="btn btn-secondary btn-sm materials-toggle-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14,2 14,8 20,8"/>
+            </svg>
+            Materiallar
+          </button>
+          <button class="btn btn-ghost btn-sm share-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+              <polyline points="16,6 12,2 8,6"/>
+              <line x1="12" y1="2" x2="12" y2="15"/>
+            </svg>
+            Paylaş
+          </button>
+        </div>
+        <div class="materials-section">
+          <h4 style="font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">
+            📚 Bu videoda istifadə olunan materiallar
+          </h4>
+          <ul class="materials-list"></ul>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script>
+    /* =====================================================
+       Video Data - Professional YouTube Learning Content
+    ====================================================== */
+    const VIDEOS = [
+      {
+        id: "tm-001",
+        title: "YouTube Videoları Üçün Professional Thumbnail Necə Hazırlanır? | 2025 Gündəmi",
+        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        thumb: "images/thumb.png",
+        description: "YouTube videolarınızın izlənmə sayını artırmaq istəyirsiniz? Onda bu videoda öyrədəcəyim professional thumbnail hazırlama üsullarını mütləq izləməlisiniz!",
+        materials: [
+          { label: "Chat Gpt Prompt", url: "https://docs.google.com/document/d/1Dd7sBc8rJCCZp0fEuOZvSYztMWOMFmcXNyc5j7ECQc4/edit?usp=sharing" },
+          
+        ],
+        tags: ["Thumbnail", "Youtube", "İzlənmə artırma"],
+        date: "2025-08-16",
+        duration: "2:08",
+        level: "Yeni Başlayan",
+        category: "Thumbnail,İzlənmə Artırma",
+        premiere: false
+      },
+      
+    ];
+
+    /* =====================================================
+       Application State & DOM Elements
+    ====================================================== */
+    const state = {
+      searchQuery: '',
+      categoryFilter: '',
+      levelFilter: '',
+      sortFilter: 'date-desc'
+    };
+
+    const elements = {
+      searchInput: document.getElementById('searchInput'),
+      categoryFilter: document.getElementById('categoryFilter'),
+      levelFilter: document.getElementById('levelFilter'), 
+      sortFilter: document.getElementById('sortFilter'),
+      contentGrid: document.getElementById('contentGrid'),
+      heroCtaBtn: document.getElementById('heroCtaBtn'),
+      themeToggle: document.getElementById('themeToggle'),
+      sunIcon: document.getElementById('sunIcon'),
+      moonIcon: document.getElementById('moonIcon'),
+      currentYear: document.getElementById('currentYear'),
+      videoCardTemplate: document.getElementById('videoCardTemplate')
+    };
+
+    /* =====================================================
+       Utility Functions
+    ====================================================== */
+    const utils = {
+      // Truncate text with ellipsis
+      truncate: (text, length = 160) => 
+        text.length > length ? text.slice(0, length - 3) + '...' : text,
+      
+      // Convert duration string to seconds for sorting
+      durationToSeconds: (duration) => {
+        const parts = duration.split(':').map(Number);
+        if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+        if (parts.length === 2) return parts[0] * 60 + parts[1];
+        return 0;
+      },
+      
+      // Format date for display
+      formatDate: (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('az-AZ', { 
+          year: 'numeric', 
+          month: 'short', 
+          day: '2-digit' 
+        });
+      },
+      
+      // Show toast notification
+      showToast: (message, isError = false) => {
+        const existingToast = document.querySelector('.toast');
+        if (existingToast) {
+          existingToast.remove();
+        }
+        
+        const toast = document.createElement('div');
+        toast.className = `toast ${isError ? 'error' : ''}`;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          setTimeout(() => toast.remove(), 300);
+        }, 2000);
+      }
+    };
+
+    /* =====================================================
+       Video Filtering & Sorting Logic  
+    ====================================================== */
+    function getFilteredAndSortedVideos() {
+      let filteredVideos = VIDEOS.slice();
+      
+      // Apply search filter
+      if (state.searchQuery) {
+        const query = state.searchQuery.toLowerCase();
+        filteredVideos = filteredVideos.filter(video =>
+          video.title.toLowerCase().includes(query) ||
+          video.description.toLowerCase().includes(query) ||
+          video.tags.some(tag => tag.toLowerCase().includes(query)) ||
+          video.category.toLowerCase().includes(query)
+        );
+      }
+      
+      // Apply category filter
+      if (state.categoryFilter) {
+        filteredVideos = filteredVideos.filter(video => 
+          video.category === state.categoryFilter
+        );
+      }
+      
+      // Apply level filter
+      if (state.levelFilter) {
+        filteredVideos = filteredVideos.filter(video => 
+          video.level === state.levelFilter
+        );
+      }
+      
+      // Apply sorting
+      switch (state.sortFilter) {
+        case 'date-asc':
+          filteredVideos.sort((a, b) => new Date(a.date) - new Date(b.date));
+          break;
+        case 'title-asc':
+          filteredVideos.sort((a, b) => a.title.localeCompare(b.title));
+          break;
+        case 'title-desc':
+          filteredVideos.sort((a, b) => b.title.localeCompare(a.title));
+          break;
+        case 'duration-asc':
+          filteredVideos.sort((a, b) => 
+            utils.durationToSeconds(a.duration) - utils.durationToSeconds(b.duration)
+          );
+          break;
+        case 'duration-desc':
+          filteredVideos.sort((a, b) => 
+            utils.durationToSeconds(b.duration) - utils.durationToSeconds(a.duration)
+          );
+          break;
+        default: // 'date-desc'
+          filteredVideos.sort((a, b) => new Date(b.date) - new Date(a.date));
+      }
+      
+      return filteredVideos;
+    }
+
+    /* =====================================================
+       Video Card Rendering
+    ====================================================== */
+    function createVideoCard(video) {
+      const cardElement = elements.videoCardTemplate.content.cloneNode(true);
+      
+      // Set thumbnail
+      const img = cardElement.querySelector('img');
+      img.src = video.thumb;
+      img.alt = video.title;
+      
+      // Set premiere badge
+      const premiereBadge = cardElement.querySelector('.premiere-badge');
+      if (video.premiere) {
+        premiereBadge.style.display = 'block';
+      }
+      
+      // Set duration
+      cardElement.querySelector('.duration-text').textContent = video.duration;
+      
+      // Set content
+      cardElement.querySelector('.video-title').textContent = video.title;
+      cardElement.querySelector('.video-date').textContent = utils.formatDate(video.date);
+      cardElement.querySelector('.video-category').textContent = video.category;
+      cardElement.querySelector('.video-level').textContent = video.level;
+      cardElement.querySelector('.video-description').textContent = 
+        utils.truncate(video.description);
+      
+      // Set tags
+      const tagsContainer = cardElement.querySelector('.video-tags');
+      video.tags.forEach(tag => {
+        const tagElement = document.createElement('span');
+        tagElement.className = 'tag';
+        tagElement.textContent = tag;
+        tagsContainer.appendChild(tagElement);
+      });
+      
+      // Set watch button
+      const watchBtn = cardElement.querySelector('.video-watch-btn');
+      watchBtn.href = video.url;
+      
+      // Set up materials toggle
+      const materialsToggleBtn = cardElement.querySelector('.materials-toggle-btn');
+      const materialsSection = cardElement.querySelector('.materials-section');
+      const materialsList = cardElement.querySelector('.materials-list');
+      
+      if (video.materials && video.materials.length > 0) {
+        // Populate materials list
+        video.materials.forEach(material => {
+          const listItem = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = material.url;
+          link.textContent = material.label;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          listItem.appendChild(link);
+          materialsList.appendChild(listItem);
+        });
+        
+        // Add click handler for materials toggle
+        materialsToggleBtn.addEventListener('click', () => {
+          const isOpen = materialsSection.classList.toggle('open');
+          materialsToggleBtn.innerHTML = isOpen ? 
+            `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>Gizlət` :
+            `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14,2 14,8 20,8"/>
+            </svg>Materiallar`;
+        });
+      } else {
+        materialsToggleBtn.style.display = 'none';
+      }
+      
+      // Set up share button
+      const shareBtn = cardElement.querySelector('.share-btn');
+      shareBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(video.url);
+          utils.showToast('Video linki kopyalandı!');
+        } catch (error) {
+          utils.showToast('Link kopyalanarkən xəta baş verdi', true);
+        }
+      });
+      
+      return cardElement;
+    }
+
+    /* =====================================================
+       Main Render Function
+    ====================================================== */
+    function renderVideoGrid() {
+      const filteredVideos = getFilteredAndSortedVideos();
+      elements.contentGrid.innerHTML = '';
+      
+      if (filteredVideos.length === 0) {
+        const noResults = document.createElement('div');
+        noResults.style.cssText = `
+          grid-column: 1 / -1;
+          text-align: center;
+          padding: 4rem 2rem;
+          color: var(--text-secondary);
+        `;
+        noResults.innerHTML = `
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="margin-bottom: 1rem; opacity: 0.5;">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.3-4.3"/>
+          </svg>
+          <h3 style="margin-bottom: 0.5rem; color: var(--text-primary);">Heç nə tapılmadı</h3>
+          <p>Axtarış kriteriyalarınızı dəyişdirməyi sınayın.</p>
+        `;
+        elements.contentGrid.appendChild(noResults);
+        return;
+      }
+      
+      filteredVideos.forEach((video, index) => {
+        const cardElement = createVideoCard(video);
+        const card = cardElement.querySelector('.video-card');
+        card.style.animationDelay = `${index * 0.1}s`;
+        elements.contentGrid.appendChild(cardElement);
+      });
+      
+      // Update hero CTA to point to latest video
+      const latestVideo = filteredVideos.sort((a, b) => 
+        new Date(b.date) - new Date(a.date)
+      )[0];
+      if (latestVideo) {
+        elements.heroCtaBtn.href = latestVideo.url;
+      }
+    }
+
+    /* =====================================================
+       Theme Management
+    ====================================================== */
+    function initTheme() {
+      const savedTheme = localStorage.getItem('tubemekan-theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const defaultTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+      
+      setTheme(defaultTheme);
+    }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('tubemekan-theme', theme);
+      
+      const isDark = theme === 'dark';
+      elements.sunIcon.style.display = isDark ? 'block' : 'none';
+      elements.moonIcon.style.display = isDark ? 'none' : 'block';
+    }
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+    }
+
+    /* =====================================================
+       Event Listeners
+    ====================================================== */
+    function initEventListeners() {
+      // Search input
+      elements.searchInput.addEventListener('input', (e) => {
+        state.searchQuery = e.target.value.trim();
+        renderVideoGrid();
+      });
+      
+      // Filter selects
+      elements.categoryFilter.addEventListener('change', (e) => {
+        state.categoryFilter = e.target.value;
+        renderVideoGrid();
+      });
+      
+      elements.levelFilter.addEventListener('change', (e) => {
+        state.levelFilter = e.target.value;
+        renderVideoGrid();
+      });
+      
+      elements.sortFilter.addEventListener('change', (e) => {
+        state.sortFilter = e.target.value;
+        renderVideoGrid();
+      });
+      
+      // Theme toggle
+      elements.themeToggle.addEventListener('click', toggleTheme);
+      
+      // Keyboard shortcuts
+      document.addEventListener('keydown', (e) => {
+        // Ctrl/Cmd + K for search focus
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+          e.preventDefault();
+          elements.searchInput.focus();
+        }
+        
+        // Escape to clear search
+        if (e.key === 'Escape' && document.activeElement === elements.searchInput) {
+          elements.searchInput.value = '';
+          state.searchQuery = '';
+          renderVideoGrid();
+        }
+      });
+    }
+
+    /* =====================================================
+       App Initialization
+    ====================================================== */
+    function init() {
+      // Set current year
+      elements.currentYear.textContent = new Date().getFullYear();
+      
+      // Initialize theme
+      initTheme();
+      
+      // Set up event listeners
+      initEventListeners();
+      
+      // Initial render
+      renderVideoGrid();
+      
+      // Add loading animation
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        document.body.style.transition = 'opacity 0.5s ease';
+        document.body.style.opacity = '1';
+      }, 100);
+    }
+
+    // Start the application
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
